@@ -1,21 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
+import BookingCalendar from './bookingcalender';
+import SelectRoomComponent from './selectroom';
 import 'react-calendar/dist/Calendar.css';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
-  const [date, setDate] = useState(new Date());
-
-  const onChange = (selectedDate) => {
-    setDate(selectedDate);
-  };
-
+  
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">Select the Visiting Date</h1>
-      <Calendar onChange={onChange} value={date} />
-      <p>Selected date: {date.toDateString()}</p>
+      <Router>
+        <Routes>
+          <Route exact path="/calendar" element={<BookingCalendar />} />
+          <Route path="/selectroom/:selectedDates" element={<SelectRoomComponent />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
