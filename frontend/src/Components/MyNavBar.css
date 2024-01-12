@@ -1,0 +1,17 @@
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .my {
+    font-size: 30px;
+    padding-left: 30px;
+    font-family: Apple Chancery, cursive;
+  }
+
+.drop-down-list {
+  padding-left: 20px;
+  padding-right: 20px;
+}
