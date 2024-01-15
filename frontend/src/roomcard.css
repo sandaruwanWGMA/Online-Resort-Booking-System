@@ -1,0 +1,65 @@
+
+.room-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    height: 450px;
+    width: 100%;   
+
+    
+}
+
+
+
+.room-card h1 {
+    color: #e7eef3;
+    font-size: 4.5em;
+    margin-bottom: 10px;
+}
+
+.room-card h3 {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.room-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.maximumguests {
+    font-size: 1.2em;
+    color: #fffefe;
+    margin-bottom: 10px;
+}
+
+.room-description {
+    font-size: 1em;
+    color: #333;
+}
+
+.room-price {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.available {
+    font-weight: bold;
+    color: #3cef28;
+}
+
+.unavailable {
+    font-weight: bold;
+  
+    color: #ff0000;
+};
+
+
+
+
+

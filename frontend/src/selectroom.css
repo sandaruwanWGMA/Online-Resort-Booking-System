@@ -1,0 +1,135 @@
+
+.roomcarddivision {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.fastbooking {
+    position: relative;
+    width: 100px; /* Set your desired width */
+    height: 50px; /* Set your desired height */
+    background-color: #339f12; /* Use a blue color of your choice */
+    color: #fff; /* Set the text color to white or another contrasting color */
+    text-align: center; /* Center the text horizontally */
+    line-height: 50px; /* Center the text vertically by setting it to the height of the button */
+    border-radius: 4px;
+    margin-right: 12px;
+    
+}
+
+/* Hover effect (optional) */
+.fastbooking:hover {
+    background-color: #81ed0e; /* Change the background color on hover */
+    cursor: pointer;
+    color: rgb(34, 56, 34);
+
+}
+
+
+.roomcarddivision2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+ 
+    align-items: right;
+    align-content: center;
+    width: 100%;
+   
+
+}
+
+.viewdetails {
+    position: relative;
+    width: 100px; /* Set your desired width */
+    height: 50px; /* Set your desired height */
+    background-color: #339f12; /* Use a blue color of your choice */
+    color: #fff; /* Set the text color to white or another contrasting color */
+    text-align: center; /* Center the text horizontally */
+    line-height: 50px; /* Center the text vertically by setting it to the height of the button */
+    
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.viewdetails:hover {
+    background-color: #81ed0e; /* Change the background color on hover */
+    cursor: pointer;
+    color: rgb(34, 56, 34);
+
+}
+
+
+.button {
+    border-radius: 4px;
+    background-color: #339f12;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: fit-content;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .navigation-division{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    width : 100%;
+    height: 450px;
+  }
+
+  .header {
+    padding: 10px 16px;
+    background: #555;
+    color: #f1f1f1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-text{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    color: #f1f1f1;
+  }
