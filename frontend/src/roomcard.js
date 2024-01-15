@@ -20,7 +20,7 @@ export const RoomCard = (props) => {
             <p className="room-description">{props.simpleDescription}</p>
             <p className="room-price">Rs.{props.price}</p>
            {props.status ? <p className = "available">Available</p> : <p className = "unavailable">Not Available on Your Dates</p>}
-           <button className = "fastbooking">Fast Booking</button>
+          
         </div>
     );
 }

@@ -2,8 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { RoomCard } from './roomcard';
 import './selectroom.css';
+import { useNavigate } from 'react-router-dom';
 const SelectRoomComponent = () => {
   const { selectedDates } = useParams();
+  const navigate = useNavigate();
     
   const roomDetails = [
     {
@@ -59,21 +61,28 @@ const SelectRoomComponent = () => {
         return;
     }
        
-
   }
 
-  // Decode the parameters if needed
+  const newvigateToMoreBookingsPage = () => {   
+    navigate(`/moreselections/${selectedDatesArray.map(date => encodeURIComponent(date)).join(',')}`);
+  }
+ 
+
   const decodedDates = selectedDates ? selectedDates.split(',').map(date => decodeURIComponent(date)) : [];
   console.log(decodedDates);
   return (
-    <div>
-      <h1>Calendar Component</h1>
-      <p>Selected dates: {decodedDates.join(', ')}</p>
+    <div className = "header">
+      <h1 className= "header-text">Enjoy Your Journey with Pake Rest</h1>
+      
+    <div className="navigation-division">
+      
+        <button onClick = {newvigateToMoreBookingsPage}class="button"><span>Click Here to Book Rooms </span></button>
+    </div>
     <div>
         {roomDetails.map(room => {
             return (
                 <div onClick = {() => handledSelectRoom(room.bookedDates)} className = "roomcarddivision">
-                
+               
                 <RoomCard 
                     
                     roomNumber={room.id}
@@ -84,6 +93,13 @@ const SelectRoomComponent = () => {
                     price={room.price}
                     status={!decodedDates.some(x => room.bookedDates.includes(x))}
                 />
+                <div className = "roomcarddivision2"> 
+                <button className = "viewdetails">View Details</button>
+                <button className = "fastbooking">
+                    Fast Booking
+                </button>
+                
+                </div>
 
                 </div>
             );
