@@ -1,6 +1,6 @@
 
 module.exports = {
-    createResort: (req, res) => {
+    createBooking: (data, callBack) => {
         const data = req.body;
 
         create(data, (err, results) => {
@@ -15,10 +15,12 @@ module.exports = {
                 success: 1,
                 data: results
             });
-        });
+        }
+        );
     },
+      
 
-    getAllResorts: (req, res) => {
+    getAllBookings: (req, res) => {
         getAll((err, results) => {
             if(err) {
                 console.log(err);
@@ -31,7 +33,7 @@ module.exports = {
         });
     },
 
-    getResortById: (req, res) => {
+    getBookingById: (req, res) => {
         const id = req.params.id;
         getById(id, (err, results) => {
             if(err) {
@@ -51,17 +53,18 @@ module.exports = {
         });
     },
 
-    updateResort: (req, res) => {
+    updateBooking: (req, res) => {
         const body = req.body;
         update(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
             }
+
             if(!results) {
                 return res.json({
                     success: 0,
-                    message: "Failed to update"
+                    message: "Failed to update booking"
                 });
             }
             return res.json({
@@ -71,14 +74,15 @@ module.exports = {
         });
     },
 
-    deleteResort: (req, res) => {
+    deleteBooking: (req, res) => {
         const data = req.body;
-        deleteResort(data, (err, results) => {
+        deleteBooking(data, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
             }
             if(!results) {
+
                 return res.json({
                     success: 0,
                     message: "Record not found"
@@ -86,10 +90,10 @@ module.exports = {
             }
             return res.json({
                 success: 1,
-                message: "Cottage deleted successfully"
+                message: "Booking deleted successfully"
             });
         });
     }
 
-    
-};
+}
+

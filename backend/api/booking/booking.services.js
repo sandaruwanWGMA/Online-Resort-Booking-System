@@ -1,16 +1,14 @@
-const pool = require('../../config/database');
-
 module.exports = {
-    createResort: (data, callBack) => {
+    createBooking: (data, callBack) => {
         pool.query(
-            `insert into Cottage(CottageID, AC, Max Numbers, Price, Description) 
-            values(?,?,?,?)`,
+            `insert into Booking(BookingID, CheckIn, CheckOut, CottageID, CustomerID) 
+            values(?,?,?,?,?)`,
             [
+                data.BookingID,
+                data.CheckIn,
+                data.CheckOut,
                 data.CottageID,
-                data.AC,
-                data.Description,
-                data.Price,
-                data.MaxNumbers,
+                data.CustomerID,
             ],
             (error, results, fields) => {
                 if(error) {
@@ -21,9 +19,9 @@ module.exports = {
         );
     },
 
-    getAllResorts: callBack => {
+    getAllBookings: callBack => {
         pool.query(
-            `select * from Cottage`,
+            `select * from Booking`,
             [],
             (error, results, fields) => {
                 if(error) {
@@ -34,9 +32,9 @@ module.exports = {
         );
     },
 
-    getResortById: (id, callBack) => {
+    getBookingById: (id, callBack) => {
         pool.query(
-            `select * from Cottage where CottageID = ?`,
+            `select * from Booking where BookingID = ?`,
             [id],
             (error, results, fields) => {
                 if(error) {
@@ -47,15 +45,15 @@ module.exports = {
         );
     },
 
-    updateResort: (data, callBack) => {
+    updateBooking: (data, callBack) => {
         pool.query(
-            `update Cottage set AC=?, Max Numbers=?, Price=?, Description=? where CottageID=?`,
+            `update Booking set CheckIn=?, CheckOut=?, CottageID=?, CustomerID=? where BookingID=?`,
             [
-                data.AC,
-                data.MaxNumbers,
-                data.Price,
-                data.Description,
-                data.CottageID
+                data.CheckIn,
+                data.CheckOut,
+                data.CottageID,
+                data.CustomerID,
+                data.BookingID
             ],
             (error, results, fields) => {
                 if(error) {
@@ -66,10 +64,10 @@ module.exports = {
         );
     },
 
-    deleteResort: (data, callBack) => {
+    deleteBooking: (data, callBack) => {
         pool.query(
-            `delete from Cottage where CottageID=?`,
-            [data.CottageID],
+            `delete from Booking where BookingID=?`,
+            [data.BookingID],
             (error, results, fields) => {
                 if(error) {
                     return callBack(error);
@@ -78,7 +76,4 @@ module.exports = {
             }
         );
     }
-
-
-
-}
+};
