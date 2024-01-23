@@ -1,11 +1,13 @@
+const {createBooking, getAllBookings, getBookingById, updateBooking, deleteBooking} = require("./booking.services");
+
 
 module.exports = {
-    createBooking: (data, callBack) => {
-        const data = req.body;
-
-        create(data, (err, results) => {
-            if(err) {
-                console.log(err);
+    createBooking: (data, res) => {
+        const body = data.body;
+    
+        createBooking(body, (err, results) => {
+            if (err) {
+                console.error(err);
                 return res.status(500).json({
                     success: 0,
                     message: "Database connection error"
@@ -15,13 +17,13 @@ module.exports = {
                 success: 1,
                 data: results
             });
-        }
-        );
+        });
     },
+    
       
 
     getAllBookings: (req, res) => {
-        getAll((err, results) => {
+        getAllBookings((err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -35,7 +37,7 @@ module.exports = {
 
     getBookingById: (req, res) => {
         const id = req.params.id;
-        getById(id, (err, results) => {
+        getBookingById(id, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -55,7 +57,7 @@ module.exports = {
 
     updateBooking: (req, res) => {
         const body = req.body;
-        update(body, (err, results) => {
+        updateBooking(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return;

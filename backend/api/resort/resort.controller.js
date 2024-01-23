@@ -1,9 +1,9 @@
-
+const {createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./resort.service");
 module.exports = {
     createResort: (req, res) => {
         const data = req.body;
 
-        create(data, (err, results) => {
+        createResort(data, (err, results) => {
             if(err) {
                 console.log(err);
                 return res.status(500).json({
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     getAllResorts: (req, res) => {
-        getAll((err, results) => {
+        getAllResorts((err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -33,7 +33,7 @@ module.exports = {
 
     getResortById: (req, res) => {
         const id = req.params.id;
-        getById(id, (err, results) => {
+        getResortById(id, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -53,7 +53,7 @@ module.exports = {
 
     updateResort: (req, res) => {
         const body = req.body;
-        update(body, (err, results) => {
+        updateResort(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return;

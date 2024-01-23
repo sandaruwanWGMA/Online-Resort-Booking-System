@@ -1,4 +1,4 @@
-import { createBooking, getAllBookings, getBookingById, updateBooking, deleteBooking } from "./booking.controller";
+const { createBooking, getAllBookings, getBookingById, updateBooking, deleteBooking } = require("./booking.controller");
 
 const router = require("express").Router();
 
@@ -7,3 +7,5 @@ router.get("/", getAllBookings);
 router.get("/:id", getBookingById);
 router.patch("/", updateBooking);
 router.delete("/", deleteBooking);
+
+module.exports = router

@@ -3,14 +3,14 @@ const pool = require('../../config/database');
 module.exports = {
     createResort: (data, callBack) => {
         pool.query(
-            `insert into Cottage(CottageID, AC, Max Numbers, Price, Description) 
-            values(?,?,?,?)`,
+            `insert into Cottage(CottageID, AC, Max Numbers, Price, Description('/' separated) 
+            values(?,?,?,?,?)`,
             [
                 data.CottageID,
                 data.AC,
                 data.Description,
                 data.Price,
-                data.MaxNumbers,
+                data.Max_Numbers,
             ],
             (error, results, fields) => {
                 if(error) {
