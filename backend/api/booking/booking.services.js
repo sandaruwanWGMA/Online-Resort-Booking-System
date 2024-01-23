@@ -1,23 +1,31 @@
+const pool = require("../../config/database");
+
 module.exports = {
     createBooking: (data, callBack) => {
         pool.query(
-            `insert into Booking(BookingID, CheckIn, CheckOut, CottageID, CustomerID) 
-            values(?,?,?,?,?)`,
+            `INSERT INTO Booking (CottageID, RoomID, AirCondition, CheckIn, CheckOut)
+             VALUES (?, ?, ?, ?, ?)`,
             [
-                data.BookingID,
+                data.CottageID,
+                data.RoomID,
+                data.AirCondition,
                 data.CheckIn,
                 data.CheckOut,
-                data.CottageID,
-                data.CustomerID,
             ],
             (error, results, fields) => {
-                if(error) {
+                if (error) {
+                    console.error("Error in createBooking query:", error);
                     return callBack(error);
                 }
+    
+                console.log("Query executed successfully. Results:", results);
+    
                 return callBack(null, results);
             }
         );
     },
+    
+    
 
     getAllBookings: callBack => {
         pool.query(
@@ -34,7 +42,7 @@ module.exports = {
 
     getBookingById: (id, callBack) => {
         pool.query(
-            `select * from Booking where BookingID = ?`,
+            `select * from Booking where Booking_Ref = ?`,
             [id],
             (error, results, fields) => {
                 if(error) {

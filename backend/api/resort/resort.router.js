@@ -1,5 +1,5 @@
 
-import { createResort, getAllResorts, getResortById, updateResort, deleteResort} from "./resort.controller";
+const { createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./resort.controller");
 
 const router = require("express").Router();
 
@@ -9,3 +9,5 @@ router.get("/", getAllResorts);
 router.get("/:id", getResortById);
 router.patch("/", updateResort);
 router.delete("/", deleteResort);
+
+module.exports =router
