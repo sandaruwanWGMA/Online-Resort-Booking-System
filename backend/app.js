@@ -7,6 +7,7 @@ const cottageRouter = require("./api/cottage/cottage.router");
 const bookingRouter = require("./api/booking/booking.router");
 const roomRouter = require("./api/room/room.router");
 const reviewRouter = require("./api/review/review.router");
+const requestRouter = require("./api/Request/request.router");
 
 // middleware
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use("/api/cottage", cottageRouter);
 app.use("/api/booking", bookingRouter);
 app.use("/api/room", roomRouter);
 app.use("/api/review", reviewRouter);
+app.use("/api/request", requestRouter);
 
 app.listen(8080, () => {
     console.log("Server up and running");
