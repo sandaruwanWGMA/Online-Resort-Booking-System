@@ -1,13 +1,11 @@
-const {createBooking, getAllBookings, getBookingById, updateBooking, deleteBooking} = require("./booking.services");
-
-
+const {createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./cottage.service");
 module.exports = {
-    createBookingController: (data, res) => {
-        const body = data.body;
-    
-        createBooking(body, (err, results) => {
-            if (err) {
-                console.error(err);
+    createResort: (req, res) => {
+        const data = req.body;
+
+        createResort(data, (err, results) => {
+            if(err) {
+                console.log(err);
                 return res.status(500).json({
                     success: 0,
                     message: "Database connection error"
@@ -19,25 +17,23 @@ module.exports = {
             });
         });
     },
-    
-      
 
-    getAllBookings: (req, res) => {
-        getAllBookings((err, results) => {
+    getAllResorts: (req, res) => {
+        getAllResorts((err, results) => {
             if(err) {
                 console.log(err);
                 return;
             }
-            return res.json({
+            return res.status(200).json({
                 success: 1,
                 data: results
             });
         });
     },
 
-    getBookingById: (req, res) => {
+    getResortById: (req, res) => {
         const id = req.params.id;
-        getBookingById(id, (err, results) => {
+        getResortById(id, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -55,18 +51,17 @@ module.exports = {
         });
     },
 
-    updateBooking: (req, res) => {
+    updateResort: (req, res) => {
         const body = req.body;
-        updateBooking(body, (err, results) => {
+        updateResort(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
             }
-
             if(!results) {
                 return res.json({
                     success: 0,
-                    message: "Failed to update booking"
+                    message: "Failed to update"
                 });
             }
             return res.json({
@@ -76,15 +71,14 @@ module.exports = {
         });
     },
 
-    deleteBooking: (req, res) => {
+    deleteResort: (req, res) => {
         const data = req.body;
-        deleteBooking(data, (err, results) => {
+        deleteResort(data, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
             }
             if(!results) {
-
                 return res.json({
                     success: 0,
                     message: "Record not found"
@@ -92,10 +86,10 @@ module.exports = {
             }
             return res.json({
                 success: 1,
-                message: "Booking deleted successfully"
+                message: "Cottage deleted successfully"
             });
         });
     }
 
-}
-
+    
+};

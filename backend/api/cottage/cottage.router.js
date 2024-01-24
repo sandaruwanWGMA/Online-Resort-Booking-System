@@ -1,5 +1,5 @@
 
-const { createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./resort.controller");
+const { createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./cottage.controller");
 
 const router = require("express").Router();
 

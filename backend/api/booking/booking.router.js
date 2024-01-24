@@ -1,8 +1,8 @@
-const { createBooking, getAllBookings, getBookingById, updateBooking, deleteBooking } = require("./booking.controller");
+const { createBookingController, getAllBookings, getBookingById, updateBooking, deleteBooking } = require("./booking.controller");
 
 const router = require("express").Router();
 
-router.post("/", createBooking);
+router.post("/", createBookingController);
 router.get("/", getAllBookings);
 router.get("/:id", getBookingById);
 router.patch("/", updateBooking);
