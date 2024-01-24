@@ -1,17 +1,17 @@
 const pool = require('../../config/database');
 
 module.exports = {
-    createResort: (data, callBack) => {
+    createReview : (data, callBack) => {
         pool.query(
-            `insert into Cottage(CottageID, AC, Max Numbers, Price, Description('/' separated) 
-            values(?,?,?,?,?)`,
+            `insert into Review(ReviewID, RequestRef, Rating, Content) 
+            values(?,?,?,?)`,
             [
-                data.CottageID,
-                data.AC,
-                data.Description,
-                data.Price,
-                data.Max_Numbers,
+                data.ReviewID,
+                data.RequestRef,
+                data.Rating,
+                data.Content,
             ],
+                
             (error, results, fields) => {
                 if(error) {
                     return callBack(error);
@@ -21,9 +21,9 @@ module.exports = {
         );
     },
 
-    getAllResorts: callBack => {
+    getAllReviews: callBack => {
         pool.query(
-            `select * from Cottage`,
+            `select * from Review`,
             [],
             (error, results, fields) => {
                 if(error) {
@@ -34,9 +34,9 @@ module.exports = {
         );
     },
 
-    getResortById: (id, callBack) => {
+    getReviewById: (id, callBack) => {
         pool.query(
-            `select * from Cottage where CottageID = ?`,
+            `select * from Review where ReviewID = ?`,
             [id],
             (error, results, fields) => {
                 if(error) {
@@ -47,15 +47,13 @@ module.exports = {
         );
     },
 
-    updateResort: (data, callBack) => {
+    updateReview: (data, callBack) => {
         pool.query(
-            `update Cottage set AC=?, Max Numbers=?, Price=?, Description=? where CottageID=?`,
+            `update Review set Rating=?, Content=? where ReviewID=?`,
             [
-                data.AC,
-                data.MaxNumbers,
-                data.Price,
-                data.Description,
-                data.CottageID
+                data.Rating,
+                data.Content,
+                data.ReviewID
             ],
             (error, results, fields) => {
                 if(error) {
@@ -66,19 +64,19 @@ module.exports = {
         );
     },
 
-    deleteResort: (data, callBack) => {
+    deleteReview: (data, callBack) => {
         pool.query(
-            `delete from Cottage where CottageID=?`,
-            [data.CottageID],
+            `delete from Review where ReviewID=?`,
+            [data.id],
             (error, results, fields) => {
                 if(error) {
                     return callBack(error);
                 }
-                return callBack(null, results[0]);
+                return callBack(null, results);
             }
         );
     }
-
-
-
 }
+
+
+

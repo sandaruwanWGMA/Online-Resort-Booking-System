@@ -74,8 +74,8 @@ module.exports = {
 
     deleteBooking: (data, callBack) => {
         pool.query(
-            `delete from Booking where BookingID=?`,
-            [data.BookingID],
+            `delete from Booking where cotageID=? and roomID=? and checkIn=? and checkOut=?`,
+            [data.cotageID, data.roomID, data.checkIn, data.checkOut],
             (error, results, fields) => {
                 if(error) {
                     return callBack(error);

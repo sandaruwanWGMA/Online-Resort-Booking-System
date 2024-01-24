@@ -1,9 +1,9 @@
-const {createResort, getAllResorts, getResortById, updateResort, deleteResort} = require("./resort.service");
-module.exports = {
-    createResort: (req, res) => {
-        const data = req.body;
+const {createRoom, getAllRooms, getRoomById, updateRoom, deleteRoom} = require("./room.services");
 
-        createResort(data, (err, results) => {
+module.exports = {
+    createRoom: (req , res) => {
+        const body = req.body;
+        createRoom(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return res.status(500).json({
@@ -18,8 +18,8 @@ module.exports = {
         });
     },
 
-    getAllResorts: (req, res) => {
-        getAllResorts((err, results) => {
+    getAllRooms: (req, res) => {
+        getAllRooms((err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -31,9 +31,9 @@ module.exports = {
         });
     },
 
-    getResortById: (req, res) => {
+    getRoomById: (req, res) => {
         const id = req.params.id;
-        getResortById(id, (err, results) => {
+        getRoomById(id, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -51,9 +51,9 @@ module.exports = {
         });
     },
 
-    updateResort: (req, res) => {
+    updateRoom: (req, res) => {
         const body = req.body;
-        updateResort(body, (err, results) => {
+        updateRoom(body, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -61,19 +61,19 @@ module.exports = {
             if(!results) {
                 return res.json({
                     success: 0,
-                    message: "Failed to update"
+                    message: "Failed to update room"
                 });
             }
             return res.json({
                 success: 1,
-                message: "updated successfully"
+                message: "Updated successfully"
             });
         });
     },
 
-    deleteResort: (req, res) => {
+    deleteRoom: (req, res) => {
         const data = req.body;
-        deleteResort(data, (err, results) => {
+        deleteRoom(data, (err, results) => {
             if(err) {
                 console.log(err);
                 return;
@@ -86,10 +86,10 @@ module.exports = {
             }
             return res.json({
                 success: 1,
-                message: "Cottage deleted successfully"
+                message: "Room deleted successfully"
             });
         });
     }
+}
 
-    
-};
+        
