@@ -1,12 +1,12 @@
 
 import './App.css';
-import React, { useState } from 'react';
-import BookingCalendar from './bookingcalender';
+import React from 'react';
+import BookingPage from './bookingpage';
 import SelectRoomComponent from './selectroom';
 import 'react-calendar/dist/Calendar.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { MoreBookings } from './morebookings';
-import {BookingPage} from './bookingpage';
+
 
 function App() {
   
