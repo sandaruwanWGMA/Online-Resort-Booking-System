@@ -1,4 +1,3 @@
-// BookingPage.js
 
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
@@ -16,26 +15,22 @@ const BookingPage = () => {
     setEndDate(date);
   };
 
-  const handleBookingSubmit = () => {
-    // Perform booking submission logic here using startDate and endDate
-    console.log('Booking submitted:', startDate, endDate);
-  };
-
   return (
     <div>
-      <h2>Booking Page</h2>
+      <h2>Check-In and Check-Out Dates</h2>
       <div>
-        <label>Check-in Date:</label>
+        <label>Check-In Date:</label>
         <DatePicker
           selected={startDate}
           onChange={handleStartDateChange}
           selectsStart
           startDate={startDate}
           endDate={endDate}
+          dateFormat="MM/dd/yyyy"
         />
       </div>
       <div>
-        <label>Check-out Date:</label>
+        <label>Check-Out Date:</label>
         <DatePicker
           selected={endDate}
           onChange={handleEndDateChange}
@@ -43,9 +38,9 @@ const BookingPage = () => {
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
+          dateFormat="MM/dd/yyyy"
         />
       </div>
-      <button onClick={handleBookingSubmit}>Submit Booking</button>
     </div>
   );
 };
